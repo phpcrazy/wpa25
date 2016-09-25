@@ -7,12 +7,21 @@ function HomeController() {
 	get_view("home", $data);
 }
 
-function BlogController() {
+function BlogController($category, $id) {
+	echo $category . "<br />";
 	get_view("blog");
 }
 
-function TestController() {
-	get_view("testr");
+function TestController($test) {
+	get_view("test");
+}
+
+function AboutController() {
+	get_view("about");
+}
+
+function PortfolioController() {
+	get_view("portfolio");
 }
 
  ?>
