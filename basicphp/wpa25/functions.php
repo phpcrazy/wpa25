@@ -34,8 +34,28 @@ function config_get($config) {
 	. "/app/config/" . $e_config[0] . ".php";
 	return $configs[$e_config[1]];	
 }
+function db_select($table_name, $columns) {
+	$servername = config_get("database.server_name");
+	$username = config_get("database.username");
+	$password = config_get('database.password');
+	$dbname = config_get('database.dbname');
+	$conn = mysqli_connect($servername, $username, $password, $dbname);
+	if (!$conn) {
+    	die("Connection failed: " . mysqli_connect_error());
+	}
+	echo "Connected successfully <br />";
+	$columns = implode(", ", $columns);
 
-function db_select($table_name) {
+	$sql = "SELECT " . $columns . " FROM " . $table_name;
+	
+	$result = mysqli_query($conn, $sql);
+	// return all result in array
+	$data = mysqli_fetch_all($result, MYSQLI_ASSOC);
+	mysqli_close($conn);
+	return $data;
+}
+
+function db_select_all($table_name) {
 	$servername = config_get("database.server_name");
 	$username = config_get("database.username");
 	$password = config_get('database.password');
@@ -47,12 +67,9 @@ function db_select($table_name) {
 	echo "Connected successfully <br />";
 	$sql = "SELECT * FROM " . $table_name;
 	$result = mysqli_query($conn, $sql);
-	
 	// return all result in array
 	$data = mysqli_fetch_all($result, MYSQLI_ASSOC);
-
 	mysqli_close($conn);
-
 	return $data;
 }
    

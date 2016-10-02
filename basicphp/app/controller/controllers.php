@@ -1,8 +1,9 @@
 <?php 
 
 function HomeController() {
+	// select name from students
 	$data = [
-		'students'	=> db_select("students")
+		'students'	=>  db_select('students', ['name', 'address']) //db_select_all("students")
 	];
 	get_view("home", $data);
 
