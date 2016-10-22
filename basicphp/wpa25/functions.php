@@ -43,11 +43,9 @@ function db_select($table_name, $columns) {
 	if (!$conn) {
     	die("Connection failed: " . mysqli_connect_error());
 	}
-	echo "Connected successfully <br />";
 	$columns = implode(", ", $columns);
 
 	$sql = "SELECT " . $columns . " FROM " . $table_name;
-	
 	$result = mysqli_query($conn, $sql);
 	// return all result in array
 	$data = mysqli_fetch_all($result, MYSQLI_ASSOC);
@@ -64,7 +62,6 @@ function db_select_all($table_name) {
 	if (!$conn) {
     	die("Connection failed: " . mysqli_connect_error());
 	}
-	echo "Connected successfully <br />";
 	$sql = "SELECT * FROM " . $table_name;
 	$result = mysqli_query($conn, $sql);
 	// return all result in array
