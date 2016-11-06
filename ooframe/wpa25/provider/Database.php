@@ -1,11 +1,18 @@
 <?php 
-
 /*
 DB Library for WPA25
 */
 
+// SELECT 
+// DELETE
+// INSERT
+// UPDATE
+// PAGINATION
+// SEARCH
+
 class DB extends PDO {
-	private $engine; 
+
+    private $engine; 
     private $host; 
     private $database; 
     private $user; 
@@ -15,7 +22,6 @@ class DB extends PDO {
 	
 	private $select_status;
 	private $select_sql;
-
 	public function select(string ...$value) {
 		$this->select_status = true;
 		$this->select_sql = implode(",", $value); // id,name,address
@@ -50,8 +56,25 @@ class DB extends PDO {
 		$stmt = $this->prepare($sql);
 		$stmt->execute();
 		return $stmt->fetchAll(PDO::FETCH_ASSOC);
-	}
+        }
+
+        public function insert($var){
+            $var_array = array_map(function($var){
+                return sprintf("'%s'", $var);
+            }, array_values($var));
+           $variables = implode(", ", $var_array);
+            $names = implode(", ", array_keys($var));
+            $sql = sprintf("INSERT INTO %s (%s) VALUES (%s)",$this->table_name,
+                $names, $variables);
+            return $this->exec($sql);
+        }
+
+        public function delete($id){
+            $sql = sprintf("DELETE FROM %s where id=%s", $this->table_name, $id);
+            $stmt = $this->prepare($sql);
+            return $stmt->execute();
+        }
+
+
 }
-
-
  ?>

@@ -5,7 +5,7 @@ return [
 	'hostname'	=> 'localhost',
 	'username'		=> 'root',
 	'password'		=> '',
-	'dbname'		=> 'wpa25db'
+	'dbname'		=> 'wpa25db',
 ];
 
  ?>
