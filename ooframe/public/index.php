@@ -23,6 +23,8 @@ DB::table("stocks")->insert([
 
 DB::table("students")->delete(1);
 
+// $students = DB::table("students")->paginate(5);
+
 
 
 
