@@ -1,0 +1,7 @@
+{
+	"autoload": {
+		"classmap": [
+			"wpa25/provider/"
+		]
+	}
+}
