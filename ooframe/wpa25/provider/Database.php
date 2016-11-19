@@ -62,7 +62,8 @@ class DB extends PDO {
             $var_array = array_map(function($var){
                 return sprintf("'%s'", $var);
             }, array_values($var));
-           $variables = implode(", ", $var_array);
+            
+           	$variables = implode(", ", $var_array);
             $names = implode(", ", array_keys($var));
             $sql = sprintf("INSERT INTO %s (%s) VALUES (%s)",$this->table_name,
                 $names, $variables);
