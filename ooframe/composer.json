@@ -1,5 +1,8 @@
 {
 	"autoload": {
+		"psr-4": {
+			"Wpa25\\": "wpa25/src/"
+		},
 		"classmap": [
 			"wpa25/provider/"
 		]
