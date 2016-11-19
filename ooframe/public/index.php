@@ -4,9 +4,15 @@ define("DD", realpath(__DIR__ . "/.."));
 
 require DD . "/vendor/autoload.php";
 
-$student = ["name" => 'Hla Hla',"address" => 'Hledan'];
+$student = ["name" => 'Maung Maung', 'address' => 'Pazuntaung'];
 
-WmDB::table('students')->insert($student);
+// WmDB::table('students')->insert($student);
+// WmDB::table("students")->delete(5);
+// WmDB::table("students")->update($student, ["id" => 6]);
+$students = HDB::table("students")->paginate(2)->get();
+var_dump($students);
+// $stu = WmDB::table("students")->search(["name" => "M"]);
+// var_dump($stu);
 
 // $stus = DB::table("students")->select("id", "name", "address")->get();
 // // var_dump($stus);

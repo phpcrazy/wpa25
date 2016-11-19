@@ -4,6 +4,7 @@ Options +FollowSymLinks
 RewriteEngine On
  
 RewriteCond %{SCRIPT_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !favicon.ico
 RewriteCond %{SCRIPT_FILENAME} !-f
  
 RewriteRule ^.*$ ./index.php
