@@ -25,6 +25,7 @@ class ComposerStaticInit4ffe7ccf04641ee814ad2439c76544fe
         'DB' => __DIR__ . '/../..' . '/wpa25/provider/Database.php',
         'HDB' => __DIR__ . '/../..' . '/wpa25/provider/Hdb.php',
         'HhDB' => __DIR__ . '/../..' . '/wpa25/provider/HhDB.php',
+        'LogInterface' => __DIR__ . '/../..' . '/wpa25/Log/interface/LogInterface.php',
         'MsDB' => __DIR__ . '/../..' . '/wpa25/provider/MsDB.php',
         'WmDB' => __DIR__ . '/../..' . '/wpa25/provider/WmDB.php',
     );

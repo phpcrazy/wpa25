@@ -5,41 +5,58 @@ define("DD", realpath(__DIR__ . "/.."));
 require DD . "/vendor/autoload.php";
 
 use Wpa25\App\Application;
+use Wpa25\App\LogFactory;
 
-class Car {
-	public function __construct() {
-		echo "Car <br/>"; 
-	}
-	public function honk() {
-		echo "Car Pwan! <br>";
-	}
-}
+$log = new LogFactory();
 
-class Toyota {
-	public function __construct() {
-		echo "Toyota <br/>"; 
-	}
-	public function honk() {
-		echo "Toyota Pwan! <br>";
-	}
-}
+$logFile = $log->getLog('file', ["test"]);
+$logFile->write("test", "Hello World!");
+
+$logMysql = $log->getLog("mysql", ["test"]);
+$logMysql->write("mysql", "Hello Redis");
+
+$logFile = $log->getLog('file', ["test"]);
+$logFile->write("test", "Hello World!");
+
+// class Car {
+// 	public function __construct() {
+// 		echo "Car <br/>"; 
+// 	}
+// 	public function honk() {
+// 		echo "Car Pwan! <br>";
+// 	}
+// }
+
+// class Toyota {
+// 	public function __construct() {
+// 		echo "Toyota <br/>"; 
+// 	}
+// 	public function honk() {
+// 		echo "Toyota Pwan! <br>";
+// 	}
+// }
 
 // $student = ["name" => 'Maung Maung', 'address' => 'Pazuntaung'];
 
-$car = new Car();
-$toyota = new Toyota();
+// $car = new Car();
+// $toyota = new Toyota();
 
-Application::add($car);
-Application::add($car);
-die();
-Application::add($toyota);
 
-$newCar = Application::get("mycar");
-$newCar->honk();
-$newToyota = Application::get("toyota");
-$newToyota->honk();
 
-var_dump($app);
+// Application::add($car);
+// Application::add($car);
+// die();
+// Application::add($toyota);
+
+// $newCar = Application::get("mycar");
+// $newCar->honk();
+// $newToyota = Application::get("toyota");
+// $newToyota->honk();
+
+// var_dump($app);
+
+
+
 
 // WmDB::table('students')->insert($student);
 // WmDB::table("students")->delete(5);

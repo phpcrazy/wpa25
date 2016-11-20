@@ -10,6 +10,7 @@ return array(
     'DB' => $baseDir . '/wpa25/provider/Database.php',
     'HDB' => $baseDir . '/wpa25/provider/Hdb.php',
     'HhDB' => $baseDir . '/wpa25/provider/HhDB.php',
+    'LogInterface' => $baseDir . '/wpa25/Log/interface/LogInterface.php',
     'MsDB' => $baseDir . '/wpa25/provider/MsDB.php',
     'WmDB' => $baseDir . '/wpa25/provider/WmDB.php',
 );
